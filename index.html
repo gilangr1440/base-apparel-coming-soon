@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+
+    <title>Frontend Mentor | Base Apparel coming soon page</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles/CSS/css-reset.css" />
+    <link rel="stylesheet" href="styles/CSS/style.css" />
+
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <img src="images/bg-pattern-desktop.svg" alt="bg" class="background" />
+      <header class="header">
+        <img src="images/logo.svg" alt="logo" class="header__logo" />
+      </header>
+
+      <section class="text-section">
+        <h1 class="text-section__title">
+          <span class="text-section__title_color_pink">We're</span><br />
+          coming<br />
+          soon
+        </h1>
+        <p class="text-section__desc">Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
+
+        <div class="form-container">
+          <input type="email" placeholder="Email Address" class="form-container__input" />
+          <div class="form-container__error-cont">
+            <img src="images/icon-error.svg" alt="error" class="form-container__error" />
+          </div>
+          <button class="form-container__button">
+            <img src="images/icon-arrow.svg" alt="send" class="form-container__send-icon" />
+          </button>
+        </div>
+
+        <div class="text-section__error-cont">
+          <p class="text-section__error">Please provide a valid email</p>
+        </div>
+      </section>
+
+      <section class="image-section">
+        <img src="images/hero-mobile.jpg" alt="hero" class="image-section__hero-mobile" />
+        <img src="images/hero-desktop.jpg" alt="hero" class="image-section__hero-desktop" />
+      </section>
+    </main>
+
+    <footer>
+      <p class="attribution">Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="https://www.linkedin.com/in/gilangr1440/">Gilang Ramadhan</a>.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

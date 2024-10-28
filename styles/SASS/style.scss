@@ -1,0 +1,272 @@
+$desaturated-red: hsl(0, 36%, 70%);
+$soft-red: hsl(0, 93%, 68%);
+
+$dark-grayish-red: hsl(0, 6%, 24%);
+
+$gradient-one-first: hsl(0, 0%, 100%);
+$gradient-one-second: hsl(0, 100%, 98%);
+
+$gradient-two-first: hsl(0, 80%, 86%);
+$gradient-two-second: hsl(0, 74%, 74%);
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+  max-width: 100vw;
+  max-height: 100vh;
+
+  @at-root main {
+    width: 100%;
+    min-height: 100vh;
+    height: fit-content;
+    display: grid;
+    grid-template-rows: min-content min-content auto;
+
+    @at-root .background {
+      display: none;
+    }
+
+    @at-root .header {
+      width: 100%;
+      height: 90px;
+      position: relative;
+
+      @at-root .header__logo {
+        position: absolute;
+        left: 35px;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 25px;
+      }
+    }
+
+    @at-root .text-section {
+      grid-row: 3 / 4;
+      background: linear-gradient(135deg, $gradient-one-first, $gradient-one-second);
+      text-align: center;
+      padding-bottom: 100px;
+
+      @at-root .text-section__title {
+        font-size: 2.8em;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 10px;
+        line-height: 1.1;
+        margin: 60px auto 20px;
+        color: $dark-grayish-red;
+
+        @at-root .text-section__title_color_pink {
+          font-weight: 300;
+          color: $desaturated-red;
+        }
+      }
+
+      @at-root .text-section__desc {
+        line-height: 1.5;
+        width: 80%;
+        margin: 0 auto 40px;
+        color: $desaturated-red;
+      }
+
+      @at-root .form-container {
+        width: 75%;
+        margin: 0 auto 15px;
+        padding: 20px 85px 20px 30px;
+        border: 1px solid $desaturated-red;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        box-sizing: border-box;
+
+        @at-root .form-container.error {
+          border: 1.5px solid $soft-red;
+        }
+
+        @at-root .form-container__input {
+          width: 60%;
+          border: none;
+          background: transparent;
+          font-family: "Josefin Sans", sans-serif;
+          font-size: 1em;
+          color: $dark-grayish-red;
+
+          @at-root .form-container__input:focus {
+            outline: none;
+          }
+
+          @at-root .form-container__input::placeholder {
+            color: $desaturated-red;
+            opacity: 0.6;
+          }
+        }
+
+        @at-root .form-container__error-cont {
+          width: 25px;
+          height: 25px;
+
+          @at-root .form-container__error {
+            display: none;
+          }
+
+          @at-root .form-container__error.true {
+            display: block;
+          }
+        }
+
+        @at-root .form-container__button {
+          border: none;
+          background: linear-gradient(135deg, $gradient-two-first, $gradient-two-second);
+          position: absolute;
+          right: 0;
+          height: 100%;
+          width: 80px;
+          border-radius: 50px;
+          box-shadow: 0 10px 20px 0 hsla(0, 74%, 74%, 0.4);
+
+          @at-root .form-container__send-icon {
+            width: 15px;
+          }
+
+          @at-root .form-container__button:hover {
+            background: linear-gradient(135deg, lighten($gradient-two-first, 3%), lighten($gradient-two-second, 3%));
+            cursor: pointer;
+          }
+
+          @at-root .form-container__button:active {
+            background: linear-gradient(135deg, lighten($gradient-two-first, 8%), lighten($gradient-two-second, 8%));
+          }
+        }
+      }
+
+      @at-root .text-section__error-cont {
+        height: 16px;
+        width: 100%;
+
+        @at-root .text-section__error {
+          color: $soft-red;
+          display: none;
+        }
+
+        @at-root .text-section__error.true {
+          display: block;
+        }
+      }
+    }
+
+    @at-root .image-section {
+      grid-row: 2 / 3;
+      width: 100%;
+
+      @at-root .image-section__hero-mobile {
+        display: block;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      @at-root .image-section__hero-desktop {
+        display: none;
+      }
+    }
+  }
+
+  footer {
+    padding: 10px 0;
+
+    .attribution {
+      a {
+        text-decoration: none;
+        color: $desaturated-red;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  body {
+    @at-root main {
+      grid-template-rows: 15% 85%;
+      grid-template-columns: 60% 40%;
+      grid-template-areas: "header image" "text image";
+      background: linear-gradient(135deg, $gradient-one-first, $gradient-one-second) no-repeat;
+      background-size: 60% 100vh;
+
+      @at-root .background {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 60%;
+        height: 100%;
+      }
+
+      @at-root .header {
+        grid-area: header;
+        width: 60%;
+        height: 100%;
+        margin: auto;
+
+        @at-root .header__logo {
+          height: auto;
+          left: 0;
+          top: auto;
+          bottom: 0;
+        }
+      }
+
+      @at-root .text-section {
+        grid-area: text;
+        background: none;
+        z-index: 1;
+        padding: 0;
+        text-align: start;
+        width: 60%;
+        margin: auto;
+
+        @at-root .text-section__title {
+          margin: 0 auto 20px;
+          font-size: 4.5em;
+        }
+
+        @at-root .text-section__desc {
+          width: 100%;
+          font-size: 1.2em;
+        }
+
+        @at-root .form-container {
+          width: 100%;
+          height: 70px;
+          padding-right: 125px;
+
+          @at-root .form-container__input {
+            font-size: 1.2em;
+          }
+
+          @at-root .form-container__button {
+            width: 120px;
+          }
+        }
+
+        @at-root .text-section__error {
+          padding-left: 30px;
+        }
+      }
+
+      @at-root .image-section {
+        grid-area: image;
+
+        @at-root .image-section__hero-desktop {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        @at-root .image-section__hero-mobile {
+          display: none;
+        }
+      }
+    }
+  }
+}
